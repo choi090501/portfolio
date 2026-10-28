@@ -12,7 +12,7 @@ function getCurrentLocation() {
 
 const projects = [
   {
-    number: '01', category: '음악 · 공연', title: '학교 밴드부 버스킹', description: '밴드부에서 준비한 첫 공개 공연', style: 'website',
+    number: '01', category: '음악 · 공연', title: '학교 밴드부 버스킹', description: '밴드부에서 준비한 첫 공개 공연', style: 'website', image: `${import.meta.env.BASE_URL}busking-illustration.svg`,
     overview: '학교 밴드부의 일원으로 준비한 버스킹 공연입니다. 기타와 드럼을 다루는 밴드 멤버로서 여러 사람과 함께 음악을 만드는 경험을 했습니다.',
     goal: '좋아하는 악기들을 배우고 밴드에서 팀원들과 함께 음악하는 즐거움을 느끼는 것이 목표였습니다. 공개 공연을 통해 준비한 음악을 사람들과 나누고 싶었습니다.',
     process: ['밴드 구성원과 함께 연주할 곡을 정하고 연습했습니다.', '기타와 드럼 파트를 맡아서 반복 연습했습니다.', '버스킹 장소에서 처음으로 공개 공연을 했습니다.'],
@@ -24,9 +24,10 @@ function ProjectArtwork({ project, className = '' }) {
   return (
     <div className={`project-art ${project.style} ${className}`} aria-hidden="true">
       <span className="project-number">{project.number}</span>
-      {project.style === 'website' && <div className="mini-browser"><div className="mini-toolbar"><i /><i /><i /></div><div className="mini-layout"><span>HELLO!</span><div /><p>My little corner<br />of the internet.</p></div></div>}
-      {project.style === 'idea' && <><div className="idea-circle" /><span className="idea-asterisk">✳</span><span className="idea-caption">WHAT IF?</span></>}
-      {project.style === 'creative' && <><div className="creative-shape shape-one" /><div className="creative-shape shape-two" /><span className="creative-caption">make<br /><em>something.</em></span></>}
+      {project.image ? <><img className="project-art-image" src={project.image} alt="" /><span className="project-art-note">창작 일러스트 · 실제 공연 사진이 아닙니다</span></> : null}
+      {!project.image && project.style === 'website' && <div className="mini-browser"><div className="mini-toolbar"><i /><i /><i /></div><div className="mini-layout"><span>HELLO!</span><div /><p>My little corner<br />of the internet.</p></div></div>}
+      {!project.image && project.style === 'idea' && <><div className="idea-circle" /><span className="idea-asterisk">✳</span><span className="idea-caption">WHAT IF?</span></>}
+      {!project.image && project.style === 'creative' && <><div className="creative-shape shape-one" /><div className="creative-shape shape-two" /><span className="creative-caption">make<br /><em>something.</em></span></>}
     </div>
   )
 }
