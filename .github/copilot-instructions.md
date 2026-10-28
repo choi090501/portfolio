@@ -130,11 +130,9 @@ const projects = [
 `src/App.css`에서 수정합니다:
 
 예를 들어, 컨테이너 너비를 변경하려면:
-```css
 .page-width {
-  width: min(1160px, calc(100% - 96px)); /* 1160px ← 여기 수정 */
+  width: min1160px, calc(100% - 96px)); /* 1160px ← 여기 수정 */
 }
-```
 
 ---
 
